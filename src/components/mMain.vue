@@ -36,4 +36,19 @@ export default {
 
 <style lang="scss">
 
+
+.mMain {
+  margin-top: 72px;
+
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   height: 72px;
+  //   // margin-top: -72px;
+  // }
+}
+
+.hero{
+
+}
 </style>
