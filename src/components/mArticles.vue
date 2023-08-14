@@ -83,7 +83,7 @@ export default {
 
 		onArticlesButtonClick() {
 			const freeSlotsCount = this.maxPostsCount - this.prevPostsCount;
-			console.log(freeSlotsCount);
+
 			if (freeSlotsCount >= 5) {
 				this.prevPostsCount++;
 				this.getSomePosts(this.prevPostsCount, this.prevPostsCount + 4);
