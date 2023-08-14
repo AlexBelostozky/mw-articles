@@ -5,19 +5,19 @@
         <div class="hero__wrapper">
           <div class="hero__content-wrapper">
             <h1 class="hero__title">
-            Полет Илона Маска<br>
-            и DOGIE COIN
-          </h1>
+              Полет Илона Маска<br>
+              и DOGIE COIN
+            </h1>
 
-          <p class="hero__description">
-            В прошлый четверг все офигели от полета DOGIE COIN на марс.
-          </p>
+            <p class="hero__description">
+              В прошлый четверг все офигели от полета DOGIE COIN на марс.
+            </p>
 
-          <a class="hero__request-button" href="#">
-            <span class="hero__request-button-text">
-              Оставить заявку
-            </span>
-          </a>
+            <a class="hero__request-button" href="#">
+              <span class="hero__request-button-text">
+                Оставить заявку
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -61,6 +61,7 @@ export default {
   @media (min-width: $tablet-width) {
     height: calc(100vh - 117px);
     background-image: image-set(url("../assets/img/main/hero-tablet.jpg") 1x, url("../assets/img/main/hero-tablet@2x.jpg") 2x);
+    border-radius: 60px 60px 0 0;
   }
 
   @media (min-width: $desktop-width) {

@@ -1,19 +1,25 @@
 <template>
-  <section class="mArticles">
-    <div class="mArticles__wrapper">
-      <h2 class="mArticles__title">
-        Карточки
-      </h2>
+	<section class="mArticles">
+		<div class="mArticles__wrapper">
+			<h2 class="mArticles__title">
+				Карточки
+			</h2>
 
-      <ul
-        class="mArticles__list"
-        v-for="article in articlesList"
-        :key="article.id"
-      >
-        <mArticle :articleData="article" />
-      </ul>
-    </div>
-  </section>
+			<ul
+				class="mArticles__list"
+				v-for="article in articlesList"
+				:key="article.id"
+			>
+				<mArticle :articleData="article" />
+			</ul>
+		</div>
+
+		<a class="mArticles__button" href="#">
+			<span class="mArticles__button-text">
+				Загрузить ещё
+			</span>
+		</a>
+	</section>
 </template>
 
 <script>
@@ -59,5 +65,99 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/globalStyles/styles.scss";
 
+.mArticles {
+	padding: 48px 0 43px;
+}
+
+.mArticles__wrapper {
+	width: 92%;
+	margin: 0 auto;
+}
+
+.mArticles__title {
+	font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0;
+	margin-bottom: 30px;
+}
+
+.mArticles__list {
+	list-style: none;
+	margin: 0;
+	margin-bottom: 38px;
+	padding: 0;
+}
+
+.mArticles__button {
+	display: block;
+	box-sizing: border-box;
+	font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: $white;
+	background-color: $gold;
+	width: 264px;
+	min-height: 60px;
+	padding: 21px;
+  margin: 0 auto;
+	transform: skewX(-19deg);
+	transition: all 0.2s ease-in-out;
+
+  &::after {
+		position: absolute;
+		right: 0;
+		top: 0;
+		content: '';
+		width: 6px;
+		height: 100%;
+		background-color: $white;
+		transform: translateX(11px);
+		transition: all 0.2s ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: $white;
+		color: $black;
+
+		&::after {
+			background-color: $gold;
+			transform: translateX(15px);
+		}
+	}
+
+	&:active {
+		background-color: $gray-light;
+		color: $black;
+
+		&::after {
+			background-color: $gold;
+			transform: translateX(15px);
+		}
+	}
+
+	@media (min-width: $tablet-width) {
+		width: 281px;
+    min-height: 60px;
+    padding: 21px;
+  }
+
+	@media (min-width: $desktop-width) {
+		margin-left: 1%;
+	}
+}
+
+.mArticles__button-text {
+	display: block;
+	transform: skewX(19deg);
+}
 </style>

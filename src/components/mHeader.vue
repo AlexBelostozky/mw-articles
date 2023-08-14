@@ -146,6 +146,10 @@ export default {
 			visibility: visible;
 			opacity: 1;
 		}
+
+		.mHeader__buttons-wrapper {
+			pointer-events: all;
+		}
 	}
 }
 
@@ -466,6 +470,7 @@ export default {
 	gap: 6px;
 	margin: 0 auto;
 	padding-bottom: 15px;
+	pointer-events: none;
 
 	@media (min-width: $tablet-width) {
     position: static;
@@ -476,6 +481,7 @@ export default {
 		margin: 0;
 		margin-right: 17px;
 		padding: 0;
+		pointer-events: all;
   }
 
 	@media (min-width: $desktop-width) {

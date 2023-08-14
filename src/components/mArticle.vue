@@ -1,5 +1,5 @@
 <template>
-  <li class="mArticles">
+  <li class="mArticle">
     <article class="mArticle__wrapper">
       <picture class="mArticle__thumbnail">
           <source media="(min-width: 1440px)" srcset="../assets/img/header/magwai-logo.svg" width="320" height="185">
