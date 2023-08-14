@@ -69,11 +69,19 @@ export default {
 
 .mArticles {
 	padding: 48px 0 43px;
+
+	@media (min-width: $tablet-width) {
+		padding: 44px 0 156px;
+  }
 }
 
 .mArticles__wrapper {
 	width: 92%;
 	margin: 0 auto;
+
+	@media (min-width: $tablet-width) {
+		width: 87%;
+  }
 }
 
 .mArticles__title {
@@ -84,6 +92,11 @@ export default {
   text-transform: uppercase;
   margin: 0;
 	margin-bottom: 30px;
+
+	@media (min-width: $tablet-width) {
+		font-size: 42px;
+		margin-bottom: 40px;
+  }
 }
 
 .mArticles__list {
@@ -91,6 +104,10 @@ export default {
 	margin: 0;
 	margin-bottom: 38px;
 	padding: 0;
+
+	@media (min-width: $tablet-width) {
+		margin-bottom: 60px;
+  }
 }
 
 .mArticles__button {
