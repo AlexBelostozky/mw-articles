@@ -79,6 +79,18 @@ export default {
   background-color: $white;
   color: $black;
   margin: 0;
+  min-width: 293px;
+  max-width: 605px;
+
+  @media (min-width: $tablet-width) {
+    height: 621px;
+  }
+}
+
+.mArticle__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .mArticle__thumbnail img {
@@ -89,7 +101,17 @@ export default {
 }
 
 .mArticle__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-grow: 1;
   padding: 25px 24px 30px;
+
+  @media (min-width: $tablet-width) {
+    box-sizing: border-box;
+    max-height: 436px;
+  }
 }
 
 .mArticle__theme {
@@ -158,6 +180,8 @@ export default {
   width: 100%;
   min-height: 50px;
   padding: 13px;
+  margin-top: auto;
+  margin-bottom: 0;
   border: 3px solid $gray-dark;
   transition: all 0.2s ease-in-out;
 

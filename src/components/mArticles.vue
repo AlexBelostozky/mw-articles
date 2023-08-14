@@ -112,15 +112,20 @@ export default {
 }
 
 .mArticles__list {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(293px, 1fr));
+	// flex-direction: row;
+	// flex-wrap: wrap;
+	gap: 20px 20px;
 	list-style: none;
 	margin: 0;
 	margin-bottom: 38px;
 	padding: 0;
 
 	@media (min-width: $tablet-width) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(293px, 1fr));
+		gap: 30px 30px;
 		margin-bottom: 60px;
   }
 }
