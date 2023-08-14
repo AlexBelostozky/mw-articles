@@ -73,6 +73,10 @@ export default {
 	@media (min-width: $tablet-width) {
 		padding: 44px 0 156px;
   }
+
+	@media (min-width: $desktop-width) {
+		padding: 134px 0 256px;
+  }
 }
 
 .mArticles__wrapper {
@@ -81,6 +85,10 @@ export default {
 
 	@media (min-width: $tablet-width) {
 		width: 87%;
+  }
+
+	@media (min-width: $desktop-width) {
+		width: 90%;
   }
 }
 
@@ -96,6 +104,10 @@ export default {
 	@media (min-width: $tablet-width) {
 		font-size: 42px;
 		margin-bottom: 40px;
+  }
+
+	@media (min-width: $desktop-width) {
+		margin-bottom: 53px;
   }
 }
 
@@ -160,16 +172,6 @@ export default {
 			background-color: $gold;
 			transform: translateX(15px);
 		}
-	}
-
-	@media (min-width: $tablet-width) {
-		width: 281px;
-    min-height: 60px;
-    padding: 21px;
-  }
-
-	@media (min-width: $desktop-width) {
-		margin-left: 1%;
 	}
 }
 
