@@ -14,7 +14,12 @@
 			</ul>
 		</div>
 
-		<a class="mArticles__button" href="#">
+		<a
+			class="mArticles__button"
+			href="#"
+			@click.prevent="onArticlesButtonClick"
+			v-if="this.prevPostsCount < this.maxPostsCount"
+		>
 			<span class="mArticles__button-text">
 				Загрузить ещё
 			</span>
@@ -33,34 +38,61 @@ export default {
 
   data () {
     return {
-      articlesList: [
-        {
-          "userId": 1,
-          "id": 1,
-          "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-          "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-          "image": "https://via.placeholder.com/150/92c952",
-          "alt": "Alt"
-        },
-        {
-          "userId": 1,
-          "id": 2,
-          "title": "qui est esse",
-          "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
-          "image": "https://via.placeholder.com/150/92c952",
-          "alt": "Alt"
-        },
-        {
-          "userId": 1,
-          "id": 3,
-          "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-          "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut",
-          "image": "https://via.placeholder.com/150/92c952",
-          "alt": "Alt"
-        },
-      ]
+			requestPostUrl: 'https://jsonplaceholder.typicode.com/posts',
+			requestPhotoUrl: 'https://api.slingacademy.com/v1/sample-data/photos',
+			requestUserUrl: 'https://jsonplaceholder.typicode.com/users',
+			prevPostsCount: null,
+			maxPostsCount: 30,
+      articlesList: []
     }
-  }
+  },
+
+	mounted() {
+		this.getSomePosts(this.articlesList.length + 1, this.articlesList.length + 5);
+	},
+
+	methods: {
+		async getPost(postId) {
+			try {
+				// get post
+				const postData = await fetch(this.requestPostUrl + '/' + postId);
+				const post = await postData.json();
+				// get photo
+				const	photoData = await fetch(this.requestPhotoUrl + '/' + postId);
+				const photo = await photoData.json();
+				// get user
+				const	userData = await fetch(this.requestUserUrl + '/' + post.userId);
+				const user = await userData.json();
+				// consolidate data
+				post.image = await photo.photo.url;
+				post.altText = await photo.photo.description;
+				post.author = await user.name;
+				return post
+			} catch (error) {
+				console.log(error);
+			}
+		},
+
+		getSomePosts(prev, nextMax) {
+			for (let idx = prev; idx <= nextMax; idx++) {
+				this.getPost(idx)
+				.then(article => this.articlesList.push(article));
+			}
+			this.prevPostsCount = nextMax;
+		},
+
+		onArticlesButtonClick() {
+			const freeSlotsCount = this.maxPostsCount - this.prevPostsCount;
+			console.log(freeSlotsCount);
+			if (freeSlotsCount >= 5) {
+				this.prevPostsCount++;
+				this.getSomePosts(this.prevPostsCount, this.prevPostsCount + 4);
+			} else {
+				this.prevPostsCount++;
+				this.getSomePosts(this.prevPostsCount, this.prevPostsCount + freeSlotsCount - 1);
+			}
+		}
+	}
 }
 </script>
 
@@ -114,8 +146,6 @@ export default {
 .mArticles__list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(293px, 1fr));
-	// flex-direction: row;
-	// flex-wrap: wrap;
 	gap: 20px 20px;
 	list-style: none;
 	margin: 0;

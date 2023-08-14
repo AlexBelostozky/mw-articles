@@ -2,8 +2,8 @@
   <li class="mArticle">
     <article class="mArticle__wrapper">
       <picture class="mArticle__thumbnail">
-          <source media="(min-width: 1440px)" srcset="../assets/img/header/magwai-logo.svg" width="320" height="185">
-					<source media="(min-width: 768px)" srcset="../assets/img/header/magwai-logo.svg" width="334" height="185">
+          <source media="(min-width: 1440px)" :srcset="articleData.image" width="320" height="185">
+					<source media="(min-width: 768px)" :srcset="articleData.image" width="334" height="185">
 					<img :src="articleData.image" width="329" height="185" :alt="articleData.altText">
 			</picture>
 
