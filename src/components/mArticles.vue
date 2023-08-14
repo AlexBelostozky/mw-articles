@@ -5,12 +5,12 @@
 				Карточки
 			</h2>
 
-			<ul
-				class="mArticles__list"
-				v-for="article in articlesList"
-				:key="article.id"
-			>
-				<mArticle :articleData="article" />
+			<ul class="mArticles__list">
+				<mArticle
+					v-for="article in articlesList"
+					:key="article.id"
+					:articleData="article"
+				/>
 			</ul>
 		</div>
 
@@ -112,6 +112,9 @@ export default {
 }
 
 .mArticles__list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	list-style: none;
 	margin: 0;
 	margin-bottom: 38px;
