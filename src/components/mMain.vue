@@ -89,6 +89,10 @@ export default {
     gap: 40px;
     width: 87%;
   }
+
+  @media (min-width: $desktop-width) {
+    width: 90%;
+  }
 }
 
 .hero__title {
@@ -101,6 +105,10 @@ export default {
 
   @media (min-width: $tablet-width) {
     font-size: 38px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 42px;
   }
 }
 
@@ -175,9 +183,7 @@ export default {
   }
 
 	@media (min-width: $desktop-width) {
-		width: 100%;
-		min-width: 183px;
-		max-width: 283px;
+		margin-left: 1%;
 	}
 }
 
