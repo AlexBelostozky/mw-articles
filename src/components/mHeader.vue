@@ -135,6 +135,7 @@ export default {
 	color: $white;
 	background-color: $black;
 	transition: all 0.2s ease-in-out;
+	z-index: 1;
 
 	&--opened {
 		height: 100vh;
@@ -478,6 +479,7 @@ export default {
   }
 
 	@media (min-width: $desktop-width) {
+		justify-content: space-between;
 		flex-grow: 1;
 		max-width: 385px;
 		margin-right: 0;
