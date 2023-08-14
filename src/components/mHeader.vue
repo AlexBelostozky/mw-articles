@@ -160,15 +160,34 @@ export default {
     width: 87%;
 		min-height: 117px;
   }
+
+	@media (min-width: $desktop-width) {
+		box-sizing: border-box;
+		justify-content: flex-start;
+    gap: 0;
+		width: 90%;
+  }
 }
 
 .mHeader__logo {
 	order: 1;
+
+	@media (min-width: $desktop-width) {
+    order: initial;
+  }
+
+	@media (min-width: $desktop-width) {
+		margin-right: 4%;
+	}
 }
 
 .mHeader__navigation-button {
 	position: relative;
 	padding: 6px 3px;
+
+	@media (min-width: $desktop-width) {
+    display: none;
+  }
 }
 
 .mHeader__navigation-toggle {
@@ -341,6 +360,16 @@ export default {
   }
 }
 
+.mHeader__navigation {
+	@media (min-width: $desktop-width) {
+		flex-grow: 1;
+		width: auto;
+		min-width: 761px;
+		margin: 0;
+		margin-right: 4%;
+	}
+}
+
 .mHeader__navigation-list {
 	position: absolute;
 	top: 71px;
@@ -360,6 +389,18 @@ export default {
     top: 169px;
 		width: 87%;
   }
+
+	@media (min-width: $desktop-width) {
+		position: static;
+    visibility: visible;
+		opacity: 1;
+		justify-content: flex-start;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 4%;
+		width: auto;
+		margin: 0;
+  }
 }
 
 .mHeader__navigation-item {
@@ -371,6 +412,11 @@ export default {
 	@media (min-width: $tablet-width) {
 		font-size: 36px;
 		line-height: 54px;
+	}
+
+	@media (min-width: $desktop-width) {
+		font-size: 14px;
+		line-height: 21px;
 	}
 }
 
@@ -391,7 +437,20 @@ export default {
 		color: $violet;
 		-webkit-text-stroke-color: $violet;
 		text-shadow: 0 0 1px $violet;
+	}
 
+	@media (min-width: $desktop-width) {
+		color: $white;
+		-webkit-text-stroke-width: 0;
+
+		&:hover,
+		&:focus {
+			color: $pink;
+		}
+
+		&:active {
+			color: $violet;
+		}
 	}
 }
 
@@ -417,6 +476,13 @@ export default {
 		margin-right: 17px;
 		padding: 0;
   }
+
+	@media (min-width: $desktop-width) {
+		flex-grow: 1;
+		max-width: 385px;
+		margin-right: 0;
+		margin-left: auto;
+	}
 }
 
 .mHeader__call-button {
@@ -531,6 +597,12 @@ export default {
 			transition: all 0.2s ease-in-out;
 		}
   }
+
+	@media (min-width: $desktop-width) {
+		width: 100%;
+		min-width: 183px;
+		max-width: 283px;
+	}
 }
 
 .mHeader__request-button-text {
