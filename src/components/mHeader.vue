@@ -152,17 +152,18 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	min-height: 72px;
 	width: 92%;
+	min-height: 72px;
 	margin: 0 auto;
+
+	@media (min-width: $tablet-width) {
+    width: 87%;
+		min-height: 117px;
+  }
 }
 
 .mHeader__logo {
-	order: 2;
-}
-
-.mHeader__navigation {
-
+	order: 1;
 }
 
 .mHeader__navigation-button {
@@ -354,6 +355,11 @@ export default {
 	visibility: hidden;
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
+
+	@media (min-width: $tablet-width) {
+    top: 169px;
+		width: 87%;
+  }
 }
 
 .mHeader__navigation-item {
@@ -361,6 +367,11 @@ export default {
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
+
+	@media (min-width: $tablet-width) {
+		font-size: 36px;
+		line-height: 54px;
+	}
 }
 
 .mHeader__navigation-link {
@@ -395,6 +406,17 @@ export default {
 	gap: 6px;
 	margin: 0 auto;
 	padding-bottom: 15px;
+
+	@media (min-width: $tablet-width) {
+    position: static;
+		order: 2;
+		flex-direction: row;
+		gap: 7px;
+		width: auto;
+		margin: 0;
+		margin-right: 17px;
+		padding: 0;
+  }
 }
 
 .mHeader__call-button {
@@ -403,10 +425,6 @@ export default {
 	opacity: 0;
 	display: block;
 	box-sizing: border-box;
-	// background-color: transparent;
-
-	// background-color: $white-40;
-
 	border: 1px solid $white-40;
 	width: 93%;
 	min-height: 60px;
@@ -427,7 +445,7 @@ export default {
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		transform: skewX(19deg) translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%) skewX(19deg);
 	}
 
 	&:hover,
@@ -446,6 +464,12 @@ export default {
 			background-color: $gray-light;
 		}
 	}
+
+	@media (min-width: $tablet-width) {
+    visibility: visible;
+		opacity: 1;
+		width: 73px;
+  }
 }
 
 .mHeader__request-button {
@@ -472,12 +496,41 @@ export default {
 	&:focus {
 		background-color: $white;
 		color: $black;
+
+		&::after {
+			background-color: $gold;
+			transform: translateX(15px);
+		}
 	}
 
 	&:active {
 		background-color: $gray-light;
 		color: $black;
+
+		&::after {
+			background-color: $gold;
+			transform: translateX(15px);
+		}
 	}
+
+	@media (min-width: $tablet-width) {
+    visibility: visible;
+		opacity: 1;
+		width: 183px;
+		margin-right: 11px;
+
+		&::after {
+			position: absolute;
+			right: 0;
+			top: 0;
+			content: '';
+			width: 6px;
+			height: 100%;
+			background-color: $white;
+			transform: translateX(11px);
+			transition: all 0.2s ease-in-out;
+		}
+  }
 }
 
 .mHeader__request-button-text {

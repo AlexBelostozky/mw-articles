@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import "../assets/globalStyles/styles.scss";
 
 .mMain {
   margin-top: 72px;
@@ -46,6 +46,10 @@ export default {
   //   height: 72px;
   //   // margin-top: -72px;
   // }
+
+  @media (min-width: $tablet-width) {
+    margin-top: 117px;
+  }
 }
 
 .hero{
