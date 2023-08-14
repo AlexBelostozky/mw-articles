@@ -3,7 +3,8 @@
     <div class="mMain__wrapper">
       <section class="hero">
         <div class="hero__wrapper">
-          <h1 class="hero__title">
+          <div class="hero__content-wrapper">
+            <h1 class="hero__title">
             Полет Илона Маска<br>
             и DOGIE COIN
           </h1>
@@ -17,6 +18,7 @@
               Оставить заявку
             </span>
           </a>
+          </div>
         </div>
       </section>
 
@@ -71,14 +73,22 @@ export default {
   right: 0;
   left: 0;
   bottom: 0;
+  padding: 52px 0 52px;
+  background-image: linear-gradient(0deg, $black 0%, transparent 100%);
+}
+
+.hero__content-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 20px;
   width: 92%;
   margin: 0 auto;
-  padding: 52px 0 52px;
-  background-image: linear-gradient(0deg, $black 0%, transparent 100%);
+
+  @media (min-width: $tablet-width) {
+    gap: 40px;
+    width: 87%;
+  }
 }
 
 .hero__title {
@@ -89,11 +99,20 @@ export default {
   text-transform: uppercase;
   margin: 0;
 
+  @media (min-width: $tablet-width) {
+    font-size: 38px;
+  }
 }
 
 .hero__description {
   color: $white-80;
   margin: 0;
+
+  @media (min-width: $tablet-width) {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 460px;
+  }
 }
 
 .hero__request-button {
@@ -150,7 +169,9 @@ export default {
 	}
 
 	@media (min-width: $tablet-width) {
-		width: 183px;
+		width: 281px;
+    min-height: 60px;
+    padding: 21px;
   }
 
 	@media (min-width: $desktop-width) {
